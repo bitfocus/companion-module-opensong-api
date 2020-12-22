@@ -1,0 +1,25 @@
+{
+	"name": "opensong",
+	"version": "1.0.0",
+	"api_version": "1.0.0",
+	"keywords": [
+		"Software"
+	],
+	"manufacturer": "OpenSong",
+	"product": "OpenSong",
+	"shortname": "OpenSong",
+	"description": "OpenSong plugin for companion",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/bitfocus/companion-module-opensong.git"
+	},
+	"author": "Noah Callaway <noah@thecallaways.net>",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/bitfocus/companion-module-opensong/issues"
+	}
+}
