@@ -1,6 +1,6 @@
 {
 	"name": "opensong",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"api_version": "1.0.0",
 	"keywords": [
 		"Software"
@@ -18,6 +18,7 @@
 		"url": "git+https://github.com/bitfocus/companion-module-opensong.git"
 	},
 	"author": "Noah Callaway <noah@thecallaways.net>",
+	"contributors": "Yuri Vidal <yu.ri.vidal@gmail.com>",
 	"license": "MIT",
 	"bugs": {
 		"url": "https://github.com/bitfocus/companion-module-opensong/issues"
