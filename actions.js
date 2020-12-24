@@ -45,7 +45,7 @@ module.exports = {
 						label: 'Verse No.',
 						id: 'number',
 						default: 1,
-						min: 1,
+						min: 0,
 						max: 999,
 					}
 				]
