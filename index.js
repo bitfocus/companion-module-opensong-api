@@ -164,29 +164,37 @@ class instance extends instance_skel {
 	}
 
 	initWS() {
-		this.socket = new WebSocket(`ws://${this.config.host}:${this.config.port}/ws`);
-		this.status(this.STATUS_WARNING, 'Connecting')
 
-		this.socket.on('open', () => {
-			this.log('info', 'Opened WebSocket to OpenSong - Feedbacks Available');
-			this.socket.send('/ws/subscribe/presentation');
-			this.status(this.STATUS_OK, 'OK');
-		});
-		this.socket.on('error', (err) => {
-			this.log('error', err.message);
-		});
-		this.socket.on('close', (code, reason) => {
-			if (!this.destroyed) this.status(this.STATUS_WARNING, 'No Connection');
-			this.log('error', 'OpenSong Websocket Connection Closed - No Feedbacks');
-			this.debug('Websocket closed with code:' + code);
-		});
-		this.socket.on('message', (message) => {
-			this.processMessage(message);
-		});
+		if (this.socket !== undefined) {
+			this.socket.send('/ws/unsubscribe/presentation');
+			this.socket.close();
+		}
+
+		if (this.config.host && this.config.port) {
+			this.socket = new WebSocket(`ws://${this.config.host}:${this.config.port}/ws`);
+			this.status(this.STATUS_WARNING, 'Connecting')
+
+			this.socket.on('open', () => {
+				this.log('info', 'Opened WebSocket to OpenSong - Feedbacks Available');
+				this.socket.send('/ws/subscribe/presentation');
+				this.status(this.STATUS_OK, 'OK');
+			});
+			this.socket.on('error', (err) => {
+				this.log('error', err.message);
+			});
+			this.socket.on('close', (code, reason) => {
+				if (!this.destroyed) this.status(this.STATUS_WARNING, 'No Connection');
+				this.log('error', 'OpenSong Websocket Connection Closed - No Feedbacks');
+				this.debug('Websocket closed with code:' + code);
+			});
+			this.socket.on('message', (message) => {
+				this.processMessage(message);
+			});
+		}
 	}
 
 	checkSocketAlive() {
-		if (this.socket.readyState === WebSocket.CLOSED || this.socket === undefined) {
+		if (this.socket === undefined || this.socket.readyState === WebSocket.CLOSED) {
 			//Attempt Reconnect
 			this.debug('Socket is closed attempting recoonnect');
 			this.initWS();
