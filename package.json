@@ -1,12 +1,12 @@
 {
-	"name": "opensong",
+	"name": "opensong-api",
 	"version": "1.0.1",
 	"api_version": "1.0.0",
 	"keywords": [
 		"Software"
 	],
 	"manufacturer": "OpenSong",
-	"product": "OpenSong",
+	"product": "API",
 	"shortname": "OpenSong",
 	"description": "OpenSong plugin for companion",
 	"main": "index.js",
@@ -15,12 +15,12 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/bitfocus/companion-module-opensong.git"
+		"url": "git+https://github.com/bitfocus/companion-module-opensong-api.git"
 	},
 	"author": "Noah Callaway <noah@thecallaways.net>",
 	"contributors": ["Yuri Vidal <yu.ri.vidal@gmail.com>"],
 	"license": "MIT",
 	"bugs": {
-		"url": "https://github.com/bitfocus/companion-module-opensong/issues"
+		"url": "https://github.com/bitfocus/companion-module-opensong-api/issues"
 	}
 }
